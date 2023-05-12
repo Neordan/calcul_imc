@@ -12,3 +12,23 @@ body {
   background: linear-gradient(to right, #36d1dc, #5b86e5);
   padding: clamp(20px, 5vw, 50px) 10px 10px;
 }
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 75%;
+  margin: auto;
+}
