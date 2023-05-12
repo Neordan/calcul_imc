@@ -8,3 +8,23 @@ const IMCData = [
 ];
 
 // IMC = poids en kg / taille² en m
+
+// Récupérer le form
+const form = document.querySelector('form');
+
+// empêcher le comportement par défaut lors de la soumission d'un formulaire HTML
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  calculateIMC();
+})
+
+// Récupérer les inputs
+const inputs = document.querySelector('input');
+
+// function qui va récupérer les valeurs des inputs
+function calculateIMC() {
+  const height = inputs[0].value;
+  const weight = inputs[1].value;
+ 
+}
