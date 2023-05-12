@@ -34,6 +34,7 @@ function calculateIMC() {
   } else {
     //calcul des puissance et utilisation toFixed() pour un chiffre après la virgule
     const IMC = (weight / Math.pow(height /100, 2)).toFixed(1);
+    
     showResult(IMC);
   }
 
@@ -48,3 +49,19 @@ function Error() {
   infoIMC.textContent = "Remplissez correctement les champs"
 }
 
+// resultat en fonction de l'objet IMCData
+function showResult(IMC) {
+
+  // Parcourt de l'objet pour voir où se situe l'imc dans les intervalles de range dans l'objet
+  const rank = IMCData.find(data => {
+    if(IMC >= data.range[0] && IMC <= data.range[1]) {
+      return data;
+      // si range est un nombre
+    } else if(typeof data.range === "number" && IMC >= data.range) {
+      return data;
+    }
+  })
+  valueIMC.textContent = IMC;
+  valueIMC.style.color = `${rank.color}`;
+  infoIMC.textContent = `Résultat : ${rank.name}`
+}
