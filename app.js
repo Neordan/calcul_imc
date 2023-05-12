@@ -20,11 +20,31 @@ form.addEventListener("submit", (e) => {
 })
 
 // Récupérer les inputs
-const inputs = document.querySelector('input');
+const inputs = document.querySelectorAll('input');
 
 // function qui va récupérer les valeurs des inputs
 function calculateIMC() {
   const height = inputs[0].value;
   const weight = inputs[1].value;
- 
+
+  //Vérifier si taille et hauteur soient non vides et positifs
+  if (!height || !weight || height <= 0 || weight <= 0) {
+    Error();
+    return;
+  } else {
+    //calcul des puissance et utilisation toFixed() pour un chiffre après la virgule
+    const IMC = (weight / Math.pow(height /100, 2)).toFixed(1);
+    showResult(IMC);
+  }
+
 }
+
+const valueIMC = document.querySelector('.imc-value');
+const infoIMC = document.querySelector('.imc-info');
+
+//fonction pour afficher les erreurs
+function Error() {
+  valueIMC.textContent = "Error";
+  infoIMC.textContent = "Remplissez correctement les champs"
+}
+
